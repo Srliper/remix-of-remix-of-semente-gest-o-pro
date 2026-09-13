@@ -28,6 +28,11 @@ export const Route = createFileRoute("/")({
   component: LoginPage,
 });
 
+const DEMO = [
+  { email: "admin@asemente.com", label: "Administradora — admin@asemente.com" },
+  { email: "retiro@asemente.com", label: "Retiro — retiro@asemente.com" },
+  { email: "saomiguel@asemente.com", label: "São Miguel — saomiguel@asemente.com" },
+];
 
 function LoginPage() {
   const { login, signUp, currentUser } = useApp();
