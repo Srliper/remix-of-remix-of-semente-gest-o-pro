@@ -7,12 +7,14 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppProvider } from "../lib/store";
 import { Toaster } from "../components/ui/sonner";
+import { SplashScreen } from "../components/SplashScreen";
 
 
 function NotFoundComponent() {
@@ -128,12 +130,28 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [showSplash, setShowSplash] = useState(true);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setShowSplash(false), 3200);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
       <AppProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 2.5 }}
+        >
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </motion.div>
+        <AnimatePresence>
+          {showSplash && <SplashScreen key="splash-screen" />}
+        </AnimatePresence>
         <Toaster richColors position="top-right" />
       </AppProvider>
     </QueryClientProvider>
