@@ -90,23 +90,18 @@ export function SplashScreen() {
             ))}
         </motion.div>
 
-        <motion.h1
-          className="mt-1 flex flex-wrap justify-center font-display text-3xl font-bold text-growth-deep drop-shadow-growth sm:text-5xl"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { delayChildren: reduceMotion ? 0 : 1.72, staggerChildren: 0.045 } },
-          }}
-        >
+        <motion.h1 className="mt-1 flex flex-wrap justify-center font-display text-3xl font-bold text-growth-deep drop-shadow-growth sm:text-5xl">
           {BRAND.split("").map((letter, index) => (
             <motion.span
               key={`${letter}-${index}`}
               className={letter === " " ? "w-[0.32em]" : undefined}
-              variants={{
-                hidden: { opacity: 0, y: 16 },
-                visible: { opacity: 1, y: 0, transition: reduceMotion ? { duration: 0 } : spring },
-              }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { ...spring, delay: 1.72 + index * 0.045 }
+              }
             >
               {letter === " " ? "\u00a0" : letter}
             </motion.span>
