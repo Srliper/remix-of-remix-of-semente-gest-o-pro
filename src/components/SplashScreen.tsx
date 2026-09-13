@@ -42,7 +42,7 @@ export function SplashScreen() {
     >
       <motion.div
         className="relative flex flex-col items-center"
-        animate={reduceMotion ? undefined : { y: [0, 0, -10, 0], scale: [1, 1, 1.035, 1] }}
+        animate={reduceMotion ? {} : { y: [0, 0, -10, 0], scale: [1, 1, 1.035, 1] }}
         transition={{ duration: 2.55, times: [0, 0.7, 0.9, 1], ...spring }}
       >
         <motion.div
