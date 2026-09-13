@@ -25,9 +25,8 @@ export const Route = createFileRoute("/configuracoes")({
 
 function ConfiguracoesPage() {
   return (
-    <AppShell>
-      <h1 className="font-display text-2xl font-semibold">Configurações</h1>
-      <Card className="mt-4">
+    <AppShell title="Configurações" subtitle="Ajuste as preferências do sistema.">
+      <Card>
         <CardHeader>
           <CardTitle>Em construção</CardTitle>
         </CardHeader>

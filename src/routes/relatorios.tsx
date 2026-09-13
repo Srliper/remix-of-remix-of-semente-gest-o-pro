@@ -25,9 +25,8 @@ export const Route = createFileRoute("/relatorios")({
 
 function RelatoriosPage() {
   return (
-    <AppShell>
-      <h1 className="font-display text-2xl font-semibold">Relatórios</h1>
-      <Card className="mt-4">
+    <AppShell title="Relatórios" subtitle="Acompanhe o desempenho das unidades.">
+      <Card>
         <CardHeader>
           <CardTitle>Em construção</CardTitle>
         </CardHeader>

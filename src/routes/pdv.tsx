@@ -25,9 +25,8 @@ export const Route = createFileRoute("/pdv")({
 
 function PdvPage() {
   return (
-    <AppShell>
-      <h1 className="font-display text-2xl font-semibold">PDV — Vendas</h1>
-      <Card className="mt-4">
+    <AppShell title="PDV — Vendas" subtitle="Registre vendas rapidamente.">
+      <Card>
         <CardHeader>
           <CardTitle>Em construção</CardTitle>
         </CardHeader>

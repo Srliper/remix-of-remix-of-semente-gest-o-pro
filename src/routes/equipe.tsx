@@ -25,9 +25,8 @@ export const Route = createFileRoute("/equipe")({
 
 function EquipePage() {
   return (
-    <AppShell>
-      <h1 className="font-display text-2xl font-semibold">Equipe</h1>
-      <Card className="mt-4">
+    <AppShell title="Equipe" subtitle="Gerencie as colaboradoras.">
+      <Card>
         <CardHeader>
           <CardTitle>Em construção</CardTitle>
         </CardHeader>
