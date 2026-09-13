@@ -36,14 +36,19 @@ export function SplashScreen() {
           ? { duration: 0 }
           : { duration: 3.2, times: [0, 0.78, 1], ease: [0.4, 0, 0.2, 1] }
       }
-      exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+      exit={{
+        opacity: 0,
+        scale: 1.1,
+        filter: "blur(10px)",
+        transition: { duration: 0.05 },
+      }}
       aria-label="Brechó A Semente"
       role="status"
     >
       <motion.div
         className="relative flex flex-col items-center"
         animate={reduceMotion ? {} : { y: [0, 0, -10, 0], scale: [1, 1, 1.035, 1] }}
-        transition={{ duration: 2.55, times: [0, 0.7, 0.9, 1], ...spring }}
+        transition={{ duration: 2.55, times: [0, 0.7, 0.9, 1], ease: "easeInOut" }}
       >
         <motion.div
           className="absolute top-8 size-8 rounded-full bg-seed shadow-seed"
@@ -53,14 +58,18 @@ export function SplashScreen() {
               ? { opacity: 0 }
               : { scale: [0, 1, 1.14, 1, 0.82], opacity: [0, 1, 1, 1, 0] }
           }
-          transition={{ duration: 0.82, times: [0, 0.32, 0.58, 0.76, 1], ...spring }}
+          transition={{ duration: 0.82, times: [0, 0.32, 0.58, 0.76, 1], ease: "easeInOut" }}
         />
 
         <motion.div
           className="relative flex h-28 w-44 items-center justify-center text-growth"
           initial={{ opacity: 0, scaleY: 0.25, y: 18 }}
           animate={{ opacity: [0, 0, 1, 1], scaleY: [0.25, 0.25, 1.08, 1], y: [18, 18, 0, 0] }}
-          transition={{ duration: reduceMotion ? 0 : 1.8, times: [0, 0.42, 0.78, 1], ...spring }}
+          transition={{
+            duration: reduceMotion ? 0 : 1.8,
+            times: [0, 0.42, 0.78, 1],
+            ease: "easeInOut",
+          }}
         >
           <Sprout className="size-20" strokeWidth={1.65} aria-hidden="true" />
 
